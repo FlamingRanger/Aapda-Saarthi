@@ -1,5 +1,8 @@
 # 🚨 AapdaSetu
 
+> **Repository overview:** This README explains what AapdaSetu is, how the system works, its architecture, technology stack, project organization, development ownership, and current status. It is intended for anyone visiting or evaluating the repository.
+
+
 ## Real-Time Disaster Early-Warning & Resource Coordination Platform
 
 > **Bridging the gap between disaster information and disaster response.**
@@ -1438,61 +1441,6 @@ A developer MUST update their README when:
 [ ] No unnecessary files were changed.
 [ ] Ready For Merge = YES
 ```
-
----
-
-# 🤖 Claude Development Rules
-
-When Claude is used by any developer, Claude MUST follow these rules.
-
-## At the Start of Every Session
-
-Claude must:
-
-1. Check the current Git branch.
-2. Identify the active developer.
-3. Read the developer's README.
-4. Inspect the developer's directory.
-5. Understand current progress.
-6. Identify unfinished tasks.
-7. Identify blockers.
-8. Identify dependencies.
-9. Confirm directory ownership.
-10. State the role before coding.
-
-Example:
-
-```text
-I am working as Developer 1.
-
-Role:
-Backend Developer
-
-Branch:
-dev/backend
-
-Owned Directory:
-backend/
-
-I will only modify files inside backend/.
-```
-
-## Claude Must NOT
-
-- Modify another developer's directory.
-- Rename API fields without coordination.
-- Change API contracts silently.
-- Change database fields silently.
-- Add unnecessary technologies.
-- Add unnecessary dependencies.
-- Introduce microservices.
-- Introduce Kubernetes.
-- Introduce Kafka.
-- Introduce blockchain.
-- Introduce complex ML before MVP completion.
-- Build unnecessary 3D visualization.
-- Commit secrets.
-- Automatically dispatch real emergency resources.
 
 ---
 
