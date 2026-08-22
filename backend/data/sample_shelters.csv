@@ -1,0 +1,6 @@
+name,latitude,longitude,capacity,occupied,status,contact
+Government High School Shelter,22.2640,84.8500,300,120,OPEN,0661-2345001
+Community Hall Shelter,22.2560,84.8560,150,150,FULL,0661-2345002
+Panchayat Bhawan Shelter,22.2495,84.8480,200,40,OPEN,0661-2345003
+Sports Complex Shelter,22.2680,84.8430,400,90,OPEN,0661-2345004
+Municipal College Shelter,22.2520,84.8600,250,0,OPEN,0661-2345005
