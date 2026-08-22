@@ -1,0 +1,6 @@
+team_name,team_type,latitude,longitude,members,vehicle_type,status
+Team-01,FLOOD_RESCUE,22.2615,84.8555,8,Rescue Boat,AVAILABLE
+Team-02,MEDICAL,22.2570,84.8500,5,Ambulance,AVAILABLE
+Team-03,GENERAL_RESCUE,22.2530,84.8460,6,4x4 Truck,AVAILABLE
+Team-04,LANDSLIDE_RESCUE,22.2505,84.8430,7,Excavator Support Van,AVAILABLE
+Team-05,FIRE,22.2625,84.8395,6,Fire Tender,AVAILABLE
