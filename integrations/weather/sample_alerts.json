@@ -1,0 +1,62 @@
+[
+    {
+        "id": "sample-001",
+        "alert_type": "FLOOD_WARNING",
+        "severity": "CRITICAL",
+        "area": "Puri District",
+        "latitude": 19.8135,
+        "longitude": 85.8312,
+        "description": "River water levels rising rapidly above danger mark. Low-lying areas expected to flood within 6 hours.",
+        "source": "sample_fallback",
+        "start_time": "2026-08-22T06:00:00Z",
+        "end_time": "2026-08-22T18:00:00Z"
+    },
+    {
+        "id": "sample-002",
+        "alert_type": "CYCLONE",
+        "severity": "HIGH",
+        "area": "Cuttack District",
+        "latitude": 20.4625,
+        "longitude": 85.8830,
+        "description": "Cyclonic circulation likely to intensify over the next 24 hours. Coastal areas advised to prepare for evacuation.",
+        "source": "sample_fallback",
+        "start_time": "2026-08-22T00:00:00Z",
+        "end_time": "2026-08-23T12:00:00Z"
+    },
+    {
+        "id": "sample-003",
+        "alert_type": "HEAVY_RAIN",
+        "severity": "MEDIUM",
+        "area": "Bhubaneswar Urban",
+        "latitude": 20.2961,
+        "longitude": 85.8245,
+        "description": "Moderate to heavy rainfall expected across the city, waterlogging possible in low-lying roads.",
+        "source": "sample_fallback",
+        "start_time": "2026-08-22T09:00:00Z",
+        "end_time": "2026-08-22T21:00:00Z"
+    },
+    {
+        "id": "sample-004",
+        "alert_type": "STRONG_WIND",
+        "severity": "MEDIUM",
+        "area": "Konark Coastal Belt",
+        "latitude": 19.8876,
+        "longitude": 86.0945,
+        "description": "Sustained winds of 40-50 km/h expected along the coast, gusting higher near landfall zones.",
+        "source": "sample_fallback",
+        "start_time": "2026-08-22T12:00:00Z",
+        "end_time": "2026-08-23T00:00:00Z"
+    },
+    {
+        "id": "sample-005",
+        "alert_type": "EXTREME_RAINFALL",
+        "severity": "HIGH",
+        "area": "Khordha District",
+        "latitude": 20.1830,
+        "longitude": 85.6132,
+        "description": "Extremely heavy rainfall (>20cm) expected in isolated pockets, risk of flash flooding in low-lying settlements.",
+        "source": "sample_fallback",
+        "start_time": "2026-08-22T15:00:00Z",
+        "end_time": "2026-08-23T03:00:00Z"
+    }
+]
