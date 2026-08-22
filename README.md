@@ -1,4 +1,4 @@
-# 🚨 AapdaSetu
+# 🚨 AapdaSaarthi
 
 > **Repository overview:** This README explains what AapdaSetu is, how the system works, its architecture, technology stack, project organization, development ownership, and current status. It is intended for anyone visiting or evaluating the repository.
 
