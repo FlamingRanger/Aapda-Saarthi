@@ -1,5 +1,0 @@
-location,latitude,longitude,food_packets,water_units,medical_kits,blankets,status
-Central Warehouse,22.2600,84.8520,5000,4000,300,1000,AVAILABLE
-North Depot,22.2700,84.8580,1200,900,80,250,AVAILABLE
-South Depot,22.2470,84.8440,300,200,20,60,LOW
-East Relief Center,22.2650,84.8650,0,0,0,0,DEPLETED
