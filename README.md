@@ -11,7 +11,7 @@
 
 ## 📌 Project Overview
 
-**AapdaSetu** is a real-time disaster management and emergency resource coordination platform designed to improve how disaster-related information is collected, visualized, and acted upon.
+**AapdaSaarthi** is a real-time disaster management and emergency resource coordination platform designed to improve how disaster-related information is collected, visualized, and acted upon.
 
 During disasters such as floods, cyclones, landslides, fires, road blockages, and medical emergencies, authorities often receive information from multiple disconnected sources.
 
@@ -59,7 +59,7 @@ Resource status is updated
 Dashboard updates in real time
 ```
 
-AapdaSetu is designed as a **decision-support platform**.
+AapdaSaarthi is designed as a **decision-support platform**.
 
 It assists authorities in making faster and more informed decisions but does **not automatically dispatch real emergency resources**.
 
@@ -261,7 +261,7 @@ The authority makes the final decision.
 
 ---
 
-# ⭐ What Makes AapdaSetu Different?
+# ⭐ What Makes AapdaSaarthi Different?
 
 AapdaSetu is not just a disaster map.
 
@@ -274,7 +274,7 @@ A normal dashboard might only show:
 🔴 Flood
 ```
 
-AapdaSetu goes one step further:
+AapdaSaarthi goes one step further:
 
 ```text
 Incident
@@ -308,7 +308,7 @@ The core idea is:
 
 # 🏛️ Public Benefit
 
-AapdaSetu is designed to provide:
+AapdaSaarthi is designed to provide:
 
 ### Faster Emergency Reporting
 Citizens can report emergencies directly with their location.
@@ -729,7 +729,7 @@ The algorithm should remain explainable, deterministic and easy for authorities 
 
 # 👤 Human-in-the-Loop
 
-AapdaSetu must not automatically dispatch real emergency resources.
+AapdaSaarthi must not automatically dispatch real emergency resources.
 
 Correct workflow:
 
@@ -1710,7 +1710,7 @@ HUMAN DECISION-MAKING
 FASTER & BETTER DISASTER RESPONSE
 ```
 
-AapdaSetu is not just a disaster map.
+AapdaSaarthi is not just a disaster map.
 
 It is a **coordination layer between information and action**.
 
@@ -1718,7 +1718,7 @@ It is a **coordination layer between information and action**.
 
 # 💬 One-Line Project Explanation
 
-> **AapdaSetu is a real-time disaster coordination platform that connects citizen emergency reports with authorities and available rescue resources, using live maps, alerts and an explainable resource-allocation engine to help authorities respond faster.**
+> **AapdaSaarthi is a real-time disaster coordination platform that connects citizen emergency reports with authorities and available rescue resources, using live maps, alerts and an explainable resource-allocation engine to help authorities respond faster.**
 
 ---
 
