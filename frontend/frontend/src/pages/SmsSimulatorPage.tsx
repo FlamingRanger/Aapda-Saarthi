@@ -75,7 +75,7 @@ export default function SmsSimulatorPage() {
   return (
     <div className="max-w-2xl space-y-6">
       <div>
-        <h1 className="text-xl font-bold text-slate-900">?? SMS Fallback Simulator</h1>
+        <h1 className="text-xl font-bold text-slate-900">SMS Fallback Simulator</h1>
         <p className="mt-1 text-sm text-slate-500">Simulates how a citizen with no internet can report an emergency via SMS. Paste an SMS-formatted message to parse and submit it as an incident.</p>
       </div>
       <div className="rounded-lg border border-sky-200 bg-sky-50 p-4">

@@ -64,7 +64,7 @@ export default function IvrSimulatorPage() {
   return (
     <div className="max-w-2xl space-y-6">
       <div>
-        <h1 className="text-xl font-bold text-slate-900">?? IVR Fallback Simulator</h1>
+        <h1 className="text-xl font-bold text-slate-900">IVR Fallback Simulator</h1>
         <p className="mt-1 text-sm text-slate-500">Simulates a citizen reporting an emergency via a phone IVR system. Follow the step-by-step flow below.</p>
       </div>
 
@@ -99,7 +99,7 @@ export default function IvrSimulatorPage() {
       {/* STEP 2: Severity */}
       {step === "severity" && (
         <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-          <p className="text-xs font-semibold uppercase text-slate-500">Step 2 of 5 · Type: {incidentType}</p>
+          <p className="text-xs font-semibold uppercase text-slate-500">Step 2 of 5 ï¿½ Type: {incidentType}</p>
           <h2 className="mt-1 text-base font-bold text-slate-800">How severe is the emergency?</h2>
           <div className="mt-4 grid grid-cols-2 gap-2">
             {SEVERITY_LEVELS.map((s, i) => {
@@ -112,14 +112,14 @@ export default function IvrSimulatorPage() {
               );
             })}
           </div>
-          <button onClick={() => setStep("type")} className="mt-4 text-xs text-slate-400 hover:underline">? Back</button>
+          <button onClick={() => setStep("type")} className="mt-4 text-xs text-slate-400 hover:underline">Back</button>
         </div>
       )}
 
       {/* STEP 3: Location */}
       {step === "location" && (
         <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-          <p className="text-xs font-semibold uppercase text-slate-500">Step 3 of 5 · {incidentType} · {severity}</p>
+          <p className="text-xs font-semibold uppercase text-slate-500">Step 3 of 5 ï¿½ {incidentType} ï¿½ {severity}</p>
           <h2 className="mt-1 text-base font-bold text-slate-800">Select your location</h2>
           <div className="mt-4 space-y-2">
             {PRESET_LOCATIONS.map((loc, i) => (
@@ -147,7 +147,7 @@ export default function IvrSimulatorPage() {
           )}
           <div className="mt-4 flex gap-2">
             <Button id="ivr-loc-next" disabled={locationIndex === null || (isManual && (!manualLat || !manualLon))} onClick={() => setStep("description")}>Next</Button>
-            <Button variant="ghost" onClick={() => setStep("severity")}>? Back</Button>
+            <Button variant="ghost" onClick={() => setStep("severity")}>Back</Button>
           </div>
         </div>
       )}
@@ -155,7 +155,7 @@ export default function IvrSimulatorPage() {
       {/* STEP 4: Description */}
       {step === "description" && (
         <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-          <p className="text-xs font-semibold uppercase text-slate-500">Step 4 of 5 · {incidentType} · {severity} · {selectedLoc?.label}</p>
+          <p className="text-xs font-semibold uppercase text-slate-500">Step 4 of 5 ï¿½ {incidentType} ï¿½ {severity} ï¿½ {selectedLoc?.label}</p>
           <h2 className="mt-1 text-base font-bold text-slate-800">Describe the emergency</h2>
           <p className="mt-1 text-xs text-slate-500">After the tone, please describe your emergency in 1-2 sentences.</p>
           <textarea id="ivr-description" value={description} onChange={e => setDescription(e.target.value)}
@@ -163,7 +163,7 @@ export default function IvrSimulatorPage() {
             rows={4} className="mt-3 w-full rounded-md border border-slate-300 bg-slate-50 px-3 py-2 text-sm focus:border-sky-400 focus:outline-none focus:ring-1 focus:ring-sky-400" />
           <div className="mt-3 flex gap-2">
             <Button id="ivr-desc-next" disabled={!description.trim()} onClick={() => setStep("confirm")}>Review & Submit</Button>
-            <Button variant="ghost" onClick={() => setStep("location")}>? Back</Button>
+            <Button variant="ghost" onClick={() => setStep("location")}>Back</Button>
           </div>
         </div>
       )}
@@ -171,7 +171,7 @@ export default function IvrSimulatorPage() {
       {/* STEP 5: Confirm */}
       {step === "confirm" && (
         <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-          <p className="text-xs font-semibold uppercase text-slate-500">Step 5 of 5 — Review</p>
+          <p className="text-xs font-semibold uppercase text-slate-500">Step 5 of 5 ï¿½ Review</p>
           <h2 className="mt-1 text-base font-bold text-slate-800">Confirm your report</h2>
           <dl className="mt-4 space-y-3 text-sm text-slate-700">
             <div><dt className="text-xs uppercase text-slate-400">Emergency Type</dt><dd className="font-semibold">{formatLabel(incidentType!)}</dd></div>
@@ -181,8 +181,8 @@ export default function IvrSimulatorPage() {
           </dl>
           {submitError && <p className="mt-3 rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">{submitError}</p>}
           <div className="mt-5 flex gap-2">
-            <Button id="ivr-submit-btn" onClick={handleSubmit} isLoading={submitting}>?? Submit Emergency Report</Button>
-            <Button variant="ghost" onClick={() => setStep("description")}>? Back</Button>
+            <Button id="ivr-submit-btn" onClick={handleSubmit} isLoading={submitting}>Submit Emergency Report</Button>
+            <Button variant="ghost" onClick={() => setStep("description")}>Back</Button>
           </div>
         </div>
       )}
