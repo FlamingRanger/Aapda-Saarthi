@@ -28,10 +28,10 @@ export function onSocketEvent<K extends SocketEventName>(
   event: K,
   handler: (payload: SocketEventMap[K]) => void
 ): () => void {
-  const s = getSocket();
-  const wrapped = handler as unknown as (...args: unknown[]) => void;
-  s.on(event, wrapped);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const s = getSocket() as any;
+  s.on(event, handler);
   return () => {
-    s.off(event, wrapped);
+    s.off(event, handler);
   };
 }
