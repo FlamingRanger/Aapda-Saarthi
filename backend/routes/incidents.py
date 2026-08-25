@@ -102,9 +102,24 @@ def update(incident_id):
         return jsonify({"error": str(exc)}), 400
 
     incident = update_incident(incident, data)
+
+    # --- Release assigned teams when an incident is closed ----------------
+    # When an incident is marked RESOLVED or REJECTED, any team that was
+    # dispatched to it must be freed back to AVAILABLE so the allocation
+    # engine can recommend them for future incidents.
+    new_status = incident.status
+    if new_status in ("RESOLVED", "REJECTED"):
+        assigned_teams = Team.query.filter_by(current_assignment=incident.id).all()
+        for team in assigned_teams:
+            team.status = "AVAILABLE"
+            team.current_assignment = None
+            db.session.commit()
+            emit_team_status_changed(team.to_dict())
+
     emit_incident_updated(incident.to_dict())
 
     return jsonify(incident.to_dict()), 200
+
 
 
 @incidents_bp.post("/<int:incident_id>/recommend-resource")
