@@ -121,4 +121,6 @@ if __name__ == "__main__":
         host=app.config["HOST"],
         port=app.config["PORT"],
         debug=app.config["DEBUG"],
+        allow_unsafe_werkzeug=True,
     )
+

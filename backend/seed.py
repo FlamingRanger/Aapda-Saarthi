@@ -14,7 +14,6 @@ import csv
 import json
 import os
 
-from app import create_app
 from models import db
 from models.alert import Alert
 from models.incident import Incident
@@ -126,6 +125,7 @@ def seed_alerts():
 
 
 def main():
+    from app import create_app
     app = create_app()
     with app.app_context():
         print("Clearing existing sample-seedable tables...")
