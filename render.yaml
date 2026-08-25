@@ -2,6 +2,7 @@
   - type: web
     name: aapdasaarthi-backend
     runtime: python
+    rootDir: backend
     buildCommand: pip install -r requirements.txt
     startCommand: python app.py
     envVars:

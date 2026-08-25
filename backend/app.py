@@ -36,8 +36,13 @@ def create_app(config_object=Config):
 
     # --- Extensions -------------------------------------------------------
     db.init_app(app)
-    CORS(app, resources={r"/api/*": {"origins": app.config["CORS_ORIGINS"]}})
-    socketio.init_app(app, cors_allowed_origins=app.config["CORS_ORIGINS"])
+    cors_origins = app.config["CORS_ORIGINS"]
+    if cors_origins == "*":
+        CORS(app, resources={r"/*": {"origins": "*"}})
+        socketio.init_app(app, cors_allowed_origins="*")
+    else:
+        CORS(app, resources={r"/*": {"origins": cors_origins}})
+        socketio.init_app(app, cors_allowed_origins=cors_origins)
 
     # --- Blueprints ---------------------------------------------------
     from routes import all_blueprints
@@ -58,14 +63,34 @@ def create_app(config_object=Config):
     def server_error(_err):
         return jsonify({"error": "Internal server error."}), 500
 
+    # --- Root and static routes -------------------------------------------
+    @app.route("/")
+    def index():
+        return jsonify({"status": "ok", "service": "AapdaSaarthi Backend API"}), 200
+
     # --- Serve uploaded incident photos -----------------------------------
     @app.route("/uploads/<path:filename>")
     def serve_upload(filename):
         return send_from_directory(app.config["UPLOAD_FOLDER"], filename)
 
-    # --- DB bootstrap ---------------------------------------------------
+    # --- DB bootstrap & auto-seeding -----------------------------------
     with app.app_context():
         db.create_all()
+        if not app.config.get("TESTING"):
+            try:
+                from models.incident import Incident
+                if Incident.query.first() is None:
+                    print("[app] Database is empty. Auto-seeding initial data...")
+                    import seed
+                    seed.seed_incidents()
+                    seed.seed_teams()
+                    seed.seed_shelters()
+                    seed.seed_supplies()
+                    seed.seed_alerts()
+                    db.session.commit()
+                    print("[app] Auto-seeding complete.")
+            except Exception as exc:
+                print(f"[app] Auto-seeding skipped: {exc}")
 
     # --- Weather socket integration ------------------------------------
     # Register the backend's emit_weather_alert as the callback that the

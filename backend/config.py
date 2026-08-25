@@ -45,15 +45,18 @@ class Config:
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     # CORS
-    CORS_ORIGINS = [
-        origin.strip()
-        for origin in os.environ.get(
-            "CORS_ORIGINS",
-            "http://localhost:5173,http://127.0.0.1:5173,"
-            "http://localhost:5174,http://127.0.0.1:5174"
-        ).split(",")
-        if origin.strip()
-    ]
+    _env_cors = os.environ.get(
+        "CORS_ORIGINS",
+        "*"
+    )
+    if _env_cors.strip() == "*":
+        CORS_ORIGINS = "*"
+    else:
+        CORS_ORIGINS = [
+            origin.strip()
+            for origin in _env_cors.split(",")
+            if origin.strip()
+        ]
 
     # Uploads
     UPLOAD_FOLDER = os.path.join(BASE_DIR, os.environ.get("UPLOAD_FOLDER", "uploads"))
