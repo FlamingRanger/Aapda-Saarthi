@@ -10,13 +10,20 @@ Socket.IO-aware dev server.
 """
 
 import os
+import sys
+import threading
 
 from flask import Flask, jsonify, send_from_directory
 from flask_cors import CORS
 
 from config import Config
-from extensions import socketio
+from extensions import socketio, emit_weather_alert
 from models import db
+
+# Make integrations/weather importable from backend.
+_INTEGRATIONS_WEATHER = os.path.join(os.path.dirname(__file__), "..", "integrations", "weather")
+if os.path.isdir(_INTEGRATIONS_WEATHER):
+    sys.path.insert(0, os.path.abspath(_INTEGRATIONS_WEATHER))
 
 
 def create_app(config_object=Config):
@@ -59,6 +66,23 @@ def create_app(config_object=Config):
     # --- DB bootstrap ---------------------------------------------------
     with app.app_context():
         db.create_all()
+
+    # --- Weather socket integration ------------------------------------
+    # Register the backend's emit_weather_alert as the callback that the
+    # integrations weather_service uses to push alerts to all clients.
+    try:
+        import weather_service  # noqa: PLC0415
+        weather_service.register_emit_callback(emit_weather_alert)
+        # Run an initial poll in a background thread so startup is not blocked.
+        def _initial_weather_poll():
+            try:
+                weather_service.poll_and_emit_once()
+            except Exception as exc:  # noqa: BLE001
+                print(f"[app] Initial weather poll failed (non-fatal): {exc}")
+        threading.Thread(target=_initial_weather_poll, daemon=True).start()
+        print("[app] Weather socket integration enabled.")
+    except ImportError:
+        print("[app] integrations/weather not found — weather socket integration skipped.")
 
     return app
 

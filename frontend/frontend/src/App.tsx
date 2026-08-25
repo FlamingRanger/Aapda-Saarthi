@@ -11,6 +11,8 @@ import TeamsPage from "./pages/TeamsPage";
 import SheltersPage from "./pages/SheltersPage";
 import SuppliesPage from "./pages/SuppliesPage";
 import AlertsPage from "./pages/AlertsPage";
+import SmsSimulatorPage from "./pages/SmsSimulatorPage";
+import IvrSimulatorPage from "./pages/IvrSimulatorPage";
 import { useOfflineQueueFlush } from "./hooks/useOfflineQueueFlush";
 
 export default function App() {
@@ -33,6 +35,8 @@ export default function App() {
         <Route path="/dashboard/shelters" element={<SheltersPage />} />
         <Route path="/dashboard/supplies" element={<SuppliesPage />} />
         <Route path="/dashboard/alerts" element={<AlertsPage />} />
+        <Route path="/dashboard/sms-simulator" element={<SmsSimulatorPage />} />
+        <Route path="/dashboard/ivr-simulator" element={<IvrSimulatorPage />} />
       </Route>
 
       <Route path="*" element={<NotFound />} />

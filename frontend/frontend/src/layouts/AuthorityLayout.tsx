@@ -8,6 +8,8 @@ const NAV_ITEMS = [
   { to: "/dashboard/shelters", label: "Shelters" },
   { to: "/dashboard/supplies", label: "Supplies" },
   { to: "/dashboard/alerts", label: "Alerts" },
+  { to: "/dashboard/sms-simulator", label: "📱 SMS" },
+  { to: "/dashboard/ivr-simulator", label: "☎️ IVR" },
 ];
 
 export default function AuthorityLayout() {
