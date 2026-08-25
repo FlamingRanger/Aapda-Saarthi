@@ -11,7 +11,7 @@ Socket.IO-aware dev server.
 
 import os
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, send_from_directory
 from flask_cors import CORS
 
 from config import Config
@@ -50,6 +50,11 @@ def create_app(config_object=Config):
     @app.errorhandler(500)
     def server_error(_err):
         return jsonify({"error": "Internal server error."}), 500
+
+    # --- Serve uploaded incident photos -----------------------------------
+    @app.route("/uploads/<path:filename>")
+    def serve_upload(filename):
+        return send_from_directory(app.config["UPLOAD_FOLDER"], filename)
 
     # --- DB bootstrap ---------------------------------------------------
     with app.app_context():

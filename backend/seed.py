@@ -27,6 +27,11 @@ DATA_DIR = os.path.join(BASE_DIR, "data")
 SAMPLE_ALERTS_PATH = os.path.join(
     BASE_DIR, "..", "integrations", "weather", "sample_alerts.json"
 )
+# Fallback: check the old capitalised 'Integrations/' folder used before the merge
+if not os.path.exists(SAMPLE_ALERTS_PATH):
+    SAMPLE_ALERTS_PATH = os.path.join(
+        BASE_DIR, "..", "Integrations", "weather", "sample_alerts.json"
+    )
 
 
 def _read_csv(filename):
@@ -104,11 +109,14 @@ def seed_alerts():
     with open(SAMPLE_ALERTS_PATH, encoding="utf-8") as f:
         alerts = json.load(f)
     for item in alerts:
+        # integrations/weather/sample_alerts.json uses "description";
+        # older format used "message" — support both.
+        message = item.get("message") or item.get("description") or ""
         db.session.add(
             Alert(
                 alert_type=item["alert_type"],
                 severity=item["severity"],
-                message=item["message"],
+                message=message,
                 latitude=item.get("latitude"),
                 longitude=item.get("longitude"),
                 source=item.get("source", "SAMPLE"),
